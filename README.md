@@ -1,54 +1,60 @@
-<header>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Script Roblox</title>
+  <style>
+    body {
+      background-color: #1e1e1e;
+      color: #ffffff;
+      font-family: monospace;
+      padding: 20px;
+    }
+    textarea {
+      width: 100%;
+      height: 400px;
+      background-color: #2e2e2e;
+      color: #00ff90;
+      padding: 10px;
+      border: none;
+      resize: vertical;
+      font-size: 12px;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #00aa88;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    button:hover {
+      background-color: #007766;
+    }
+  </style>
+</head>
+<body>
+  <h1>Script para Roblox:</h1>
+  <textarea id="script" readonly>
+pcall(function() game.CoreGui["&hubGUI"]:Destroy() end)local g=Instance.new("ScreenGui",game.CoreGui)g.Name="&hubGUI"g.ResetOnSpawn=false
+local o=Instance.new("TextButton",g)o.Size=UDim2.new(0,50,0,50)o.Position=UDim2.new(0,20,0,20)o.Text="&"o.BackgroundColor3=Color3.fromRGB(30,30,30)o.TextColor3=Color3.new(1,1,1)o.BorderSizePixel=0;o.ZIndex=10
+spawn(function()while true do for i=0,1,0.01 do task.wait(0.02)o.Position=UDim2.new(0,20+math.cos(i*6.28)*10,0,20+math.sin(i*6.28)*10)end end end)
+local m=Instance.new("Frame",g)m.Size=UDim2.new(0,280,0,480)m.Position=UDim2.new(0.5,-140,0.5,-240)m.BackgroundColor3=Color3.fromRGB(30,30,30)m.Visible=false
+m.Active=true m.Draggable=true m.BorderSizePixel=0
+local function notify(t)local l=Instance.new("TextLabel",g)l.Size=UDim2.new(0,220,0,30)l.Position=UDim2.new(0.5,-110,0.1,0)l.Text=t;l.TextScaled=true
+l.BackgroundTransparency=0.3;l.BackgroundColor3=Color3.fromRGB(40,40,40)l.TextColor3=Color3.new(1,1,1)l.BorderSizePixel=0;game:GetService("Debris"):AddItem(l,2)end
+-- (demais linhas ocultadas por brevidade; você pode colar o resto do script aqui)
+  </textarea>
+  <button onclick="copiar()">Copiar</button>
 
-<!--
-  <<< Author notes: Course header >>>
-  Include a 1280×640 image, course title in sentence case, and a concise description in emphasis.
-  In your repository settings: enable template repository, add your 1280×640 social image, auto delete head branches.
-  Add your open source license, GitHub uses MIT license.
--->
-
-# GitHub Pages
-
-_Create a site or blog from your GitHub repositories with GitHub Pages._
-
-</header>
-
-<!--
-  <<< Author notes: Step 1 >>>
-  Choose 3-5 steps for your course.
-  The first step is always the hardest, so pick something easy!
-  Link to docs.github.com for further explanations.
-  Encourage users to open new tabs for steps!
--->
-
-## Step 1: Enable GitHub Pages
-
-_Welcome to GitHub Pages and Jekyll :tada:!_
-
-The first step is to enable GitHub Pages on this [repository](https://docs.github.com/en/get-started/quickstart/github-glossary#repository). When you enable GitHub Pages on a repository, GitHub takes the content that's on the main branch and publishes a website based on its contents.
-
-### :keyboard: Activity: Enable GitHub Pages
-
-1. Open a new browser tab, and work on the steps in your second tab while you read the instructions in this tab.
-1. Under your repository name, click **Settings**.
-1. Click **Pages** in the **Code and automation** section.
-1. Ensure "Deploy from a branch" is selected from the **Source** drop-down menu, and then select `main` from the **Branch** drop-down menu.
-1. Click the **Save** button.
-1. Wait about _one minute_ then refresh this page (the one you're following instructions from). [GitHub Actions](https://docs.github.com/en/actions) will automatically update to the next step.
-   > Turning on GitHub Pages creates a deployment of your repository. GitHub Actions may take up to a minute to respond while waiting for the deployment. Future steps will be about 20 seconds; this step is slower.
-   > **Note**: In the **Pages** of **Settings**, the **Visit site** button will appear at the top. Click the button to see your GitHub Pages site.
-
-<footer>
-
-<!--
-  <<< Author notes: Footer >>>
-  Add a link to get support, GitHub status page, code of conduct, license link.
--->
-
----
-
-Get help: [Post in our discussion board](https://github.com/orgs/skills/discussions/categories/github-pages) &bull; [Review the GitHub status page](https://www.githubstatus.com/)
-
-&copy; 2023 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
-
-</footer>
+  <script>
+    function copiar() {
+      const textarea = document.getElementById("script");
+      textarea.select();
+      document.execCommand("copy");
+      alert("Script copiado!");
+    }
+  </script>
+</body>
+</html>
